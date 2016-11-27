@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Linux下安装php环境</title>
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="" />
+<link rel="stylesheet" href="../css/index.css"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<script type="text/javascript" src="../js/jquery1.42.min.js"></script>
+<script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+      <!--header start-->
+    <div id="header">
+      <h1>个人博客</h1>
+      <p>以直觉和性情生存，喜欢一切美丽的事物。要有最柔软的心，即使年华老去，依旧拥有今日剔透纯净的眼睛。</p>
+    </div>
+     <!--header end-->
+    <!--nav-->
+     <div id="nav">
+         <ul>
+         <li><a href="../index.html">首页</a></li>
+         <li><a href="../about.html">关于我</a></li>
+         <li><a href="../shuo.html">碎言碎语</a></li>
+         <li><a href="../riji.html">个人日记</a></li>
+         <li><a href="../xc.html">相册展示</a></li>
+         <li><a href="../learn.html" id="nava">学无止境</a></li>
+         <li><a href="../guestbook.html">留言板</a></li>
+         <div class="clear"></div>
+        </ul>
+      </div>
+       <!--nav end-->
+    <!--content start-->
+    <div id="content">
+       <!--left-->
+         <div class="left" id="news">
+           <div class="weizi">
+           <div class="wz_text">当前位置：<a href="../index.html">首页</a>><a href="../learn.html">学无止境</a>><span>文章内容</span></div>
+           </div>
+           <div class="news_content">
+                  <div class="news_top">
+                    <h1>Linux下安装php环境</h1>
+                    <p>
+                      <span class="left sj">时间:2014-8-9</span><span class="left fl">分类:学无止境</span>
+                      <span class="left author">Xie</span>
+                    </p>
+                    <div class="clear"></div>
+                  </div>
+                    <div class="news_text">
+                    <h4>1、安装apache:</h4><br>
+                            yum install httpd httpd-devel<br>
+                            启动apache:<br>
+                            /etc/init.d/httpd start<br>
+                            此时输入服务器的IP地址，应该看到apache的服务页面，端口不用输，apache默认就是使用80端口<br>
+                        <br>
+                        <h4>2、 安装mysql:</h4><br>
+                            yum install mysql mysql-server<br>
+                            启动mysql:<br>
+                            /etc/init.d/mysqld start<br><br>
+
+                        <h4>3、 安装php</h4><br>
+                            yum install php php-devel<br>
+                            重启apache使php生效<br>
+                            /etc/init.d/httpd restart<br>
+                            此时可以在目录：/var/www/html/下建立一个PHP文件<br>
+                            代码：<br>
+                            &lt;?php phpinfo(); ?><br>
+                            然后访问这个文件，就能看到PHP的一些信息，php.ini配置文件的路径可以在这个页面上看到<br><br>
+                        <h4>4、 安装php的扩展</h4><br>
+                            yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc<br>
+                            安装完扩展之后需要再次重启apache<br>
+                            /etc/init.d/httpd restart<br>
+
+                            测试mysql是否链接成功的php代码<br>
+                            &lt;?php <br>
+$con = mysql_connect("10.0.@.@@","@@","@@");<br>
+if (!$con)<br>
+  {<br>
+  die('Could not connect: ' . mysql_error());<br>
+  }<br>
+mysql_select_db("mydb", $con);<br>
+$result = mysql_query("SELECT * FROM sys_user");<br>
+while($row = mysql_fetch_array($result))<br>
+  {<br>
+  echo $row['UserName'] . " " . $row['PassWord'] . " " . $row['id'];<br>
+  echo "<br />";<br>
+                            }<br>
+                            mysql_close($con);<br>
+                            ?><br>
+                            可以把上面的代码传入目录/var/www/html/<br>
+                            就可以看到执行情况
+                    </div>
+           </div>
+     
+         </div>
+         <!--end left -->
+         <!--right-->
+          <div class="right" id="c_right">
+          <div class="s_about">
+          <h2>关于博主</h2>
+           <img src="../images/my.jpg" width="230" height="230" alt="博主"/>
+           <p>博主：Xie</p>
+           <p>职业：web前端、视觉设计</p>
+           <p>简介：</p>
+           <p>
+           <a target="_blank" href="tencent://message/?uin=634131304" title="联系博主"><span class="left b_1"></span></a><a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>
+           <div class="clear"></div>
+           </p>
+          </div>
+          <!--栏目分类-->
+           <div class="lanmubox">
+              <div class="hd">
+               <ul><li>精心推荐</li><li>最新文章</li><li class="hd_3">随机文章</li></ul>
+              </div>
+              <div class="bd">
+                <ul>
+					<li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+				</ul>
+                 <ul>
+					<li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+				</ul>
+                 <ul>
+					<li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+				</ul>
+                 
+                
+              </div>
+           </div>
+           <!--end-->
+         </div>
+         <!--end  right-->
+         <div class="clear"></div>
+         
+    </div>
+    <!--content end-->
+    <!--footer-->
+    <div id="footer">
+     <p>Design by:Xie </p>
+    </div>
+    <!--footer end-->
+    <script type="text/javascript">jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});</script>
+    <script  type="text/javascript" src="../js/nav.js"></script>
+</body>
+</html>
+
+
