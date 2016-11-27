@@ -44,7 +44,7 @@
            </div>
            <div class="news_content">
                   <div class="news_top">
-                    <h1>Linux下安装php环境2</h1>
+                    <h1>CentOS git更新到2.2</h1>
                     <p>
                       <span class="left sj">时间:2014-8-9</span><span class="left fl">分类:学无止境</span>
                       <span class="left author">Xie</span>
@@ -52,49 +52,46 @@
                     <div class="clear"></div>
                   </div>
                     <div class="news_text">
-                    <h4>1、安装apache:</h4><br>
-                            yum install httpd httpd-devel<br>
-                            启动apache:<br>
-                            /etc/init.d/httpd start<br>
-                            此时输入服务器的IP地址，应该看到apache的服务页面，端口不用输，apache默认就是使用80端口<br>
-                        <br>
-                        <h4>2、 安装mysql:</h4><br>
-                            yum install mysql mysql-server<br>
-                            启动mysql:<br>
-                            /etc/init.d/mysqld start<br><br>
-
-                        <h4>3、 安装php</h4><br>
-                            yum install php php-devel<br>
-                            重启apache使php生效<br>
-                            /etc/init.d/httpd restart<br>
-                            此时可以在目录：/var/www/html/下建立一个PHP文件<br>
-                            代码：<br>
-                            &lt;?php phpinfo(); ?><br>
-                            然后访问这个文件，就能看到PHP的一些信息，php.ini配置文件的路径可以在这个页面上看到<br><br>
-                        <h4>4、 安装php的扩展</h4><br>
-                            yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc<br>
-                            安装完扩展之后需要再次重启apache<br>
-                            /etc/init.d/httpd restart<br>
-
-                            测试mysql是否链接成功的php代码<br>
-                            &lt;?php <br>
-$con = mysql_connect("10.0.@.@@","@@","@@");<br>
-if (!$con)<br>
-  {<br>
-  die('Could not connect: ' . mysql_error());<br>
-  }<br>
-mysql_select_db("mydb", $con);<br>
-$result = mysql_query("SELECT * FROM sys_user");<br>
-while($row = mysql_fetch_array($result))<br>
-  {<br>
-  echo $row['UserName'] . " " . $row['PassWord'] . " " . $row['id'];<br>
-  echo "<br />";<br>
-                            }<br>
-                            mysql_close($con);<br>
-                            ?><br>
-                            可以把上面的代码传入目录/var/www/html/<br>
-                            就可以看到执行情况
-                    </div>
+                      <p>在使用<a href="http://lib.csdn.net/base/git" title="Git知识库" target="_blank">Git</a> pull、git push、git clone会报类似如下的错误： <br>
+                        error: The requested URL returned error: 401 Unauthorized while accessing <a href="https://git.oschina.net/zemo/demo.git/info/refs">https://git.oschina.net/zemo/demo.git/info/refs</a> <br>
+                        fatal: HTTP request failed</p>
+                      <h4>一般是由于git版本的问题。使用如下指令查看版本：</h4>
+                      <p># git --version  </p>
+                      <p>git version 1.7.1 </p>
+                      <p>可以通过安装更高的版本解决问题。</p>
+                      <p>Centos Git1.7.1升级到Git2.2.1</p>
+                      <h4>安装需求：</h4>
+                      <p># yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc<br># yum install  gcc perl-ExtUtils-MakeMaker   
+                      </p>
+                      <p># wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz  
+                      </p>
+                      <p># tar zxvf libiconv-1.14.tar.gz   
+                      </p>
+                      <p># cd libiconv-1.14  
+                      </p>
+                      <p># ./configure --prefix=/usr/local/libiconv  
+                      </p>
+                      <p># make &amp;&amp; make install
+                      </p>
+                      <h4>卸载Centos自带的git1.7.1: </h4>
+                      <p>通过git –version查看系统带的版本，Cento6.5应该自带的是git版本是1.7.1</p>
+                      # yum remove git
+                      <h4>下载git2.2.1并将git添加到环境变量中</h4>
+                      <p># wget https://github.com/git/git/archive/v2.2.1.tar.gz                        </p>
+                      <p># tar zxvf v2.2.1.tar.gz  
+                        # cd git-2.2.1                        </p>
+                      <p># make configure                        </p>
+                      <p># ./configure --prefix=/usr/local/git --with-iconv=/usr/local/libiconv                        </p>
+                      <p># make all doc                        </p>
+                      <p># make install install-doc install-html                        </p>
+                      <p># echo "export PATH=$PATH:/usr/local/git/bin" &gt;&gt; /etc/bashrc                        </p>
+                      <p># source /etc/bashrc</p>
+                      <ul><li></li></ul>
+                     
+                      <h4>查看版本号</h4>
+                      <p># git --version  </p>
+                      <p>git version 2.2.1 </p>
+                    <h4>&nbsp;</h4></div>
            </div>
      
          </div>
