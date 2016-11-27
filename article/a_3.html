@@ -38,12 +38,12 @@
                     </p>
                     <div class="clear"></div>
                   </div>
-                    <div class="news_text">
+                    <div class="news_text"><br>
                         <h4>1．首先确认服务器出于安全的状态.</h4><br>
                         因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的
                         状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对
                         外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全
-                        状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线.<br>
+                        状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线.<br><br>
                         <h4>2．修改MySQL的登录设置：</h4><br>
                         # vim /etc/my.cnf<br>
                         在[mysqld]的段中加上一句：skip-grant-tables<br>
@@ -52,11 +52,11 @@
                         datadir=/var/lib/mysql<br>
                         socket=/var/lib/mysql/mysql.sock<br>
                         skip-grant-tables<br>
-                        保存并且退出vi。<br>
+                        保存并且退出vi。<br><br>
                         <h4>3．重新启动mysqld</h4><br>
                         # /etc/init.d/mysqld restart<br>
                         Stopping MySQL: [ OK ]<br>
-                        Starting MySQL: [ OK ]<br>
+                        Starting MySQL: [ OK ]<br><br>
                         <h4>4．登录并修改MySQL的root密码</h4><br>
                         # /usr/bin/mysql<br>
                         mysql> USE mysql;<br>
@@ -64,11 +64,11 @@
                         mysql> UPDATE user SET Password = password ( 'new-password' ) WHERE User = 'root' ;
                         Query OK, 0 rows affected (0.00 sec)<br>
                         mysql> flush privileges ;<br>
-                        mysql> quit<br>
+                        mysql> quit<br><br>
                         <h4>5．将MySQL的登录设置修改回来</h4><br>
                         # vim /etc/my.cnf<br>
                         将刚才在[mysqld]的段中加上的skip-grant-tables删除
-                        保存并且退出vim。<br>
+                        保存并且退出vim。<br><br>
                         <h4>6．重新启动mysqld</h4><br>
                         # /etc/init.d/mysqld restart<br>
                         Stopping MySQL: [ OK ]<br>
