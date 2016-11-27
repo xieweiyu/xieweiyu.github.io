@@ -63,9 +63,7 @@ var rmd_sta = 0;
 //});
 
 $(function () {
-
-
-
+   
     var html = "";
 
     html += '<div class="sd_main">';

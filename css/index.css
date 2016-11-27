@@ -16,7 +16,7 @@ img{display:block;border:0px;}
 #nav ul li{width:140px;height:30px;line-height:30px;float:left;text-align:center;margin:0px 2px 0px 0px;}
 #nav ul li a{color:#506F70;font-size:16px;width:140px;height:30px;display:block;}
 #nav ul li a:hover{display:block;width:140px;height:30px;background:#829696;border-radius:3px;color:#fff;}
-#nava{display:block;color:#fff;width:140px;height:30px;background:#829696;border-radius:3px;}
+.selected{display:block;color:#fff;width:140px;height:30px;background:#829696;border-radius:3px;}
 /*header end*/
 #content{width:1000px;margin:5px auto;}
 #c_left{width:730px; background:#fff;border-radius:1px;}
