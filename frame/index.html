@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML标签自动引入</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="include" file="header.html"></div>
+<div>中间部分</div>
+<div class="include" file="footer.html"></div>
+<script type="text/javascript">
+$(".include").each(function() {
+    var file = $(this).attr("file");
+    if(!!file) {
+        var thisObj = $(this);
+        $.get(file, function(html) {
+            thisObj.after(html).remove();
+        });
+    }
+});
+</script>
+</body>
+</html>
