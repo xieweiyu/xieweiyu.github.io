@@ -18,26 +18,9 @@
 </head>
 
 <body>
-      <!--header start-->
-    <div id="header">
-      <h1>个人博客</h1>
-      <p>以直觉和性情生存，喜欢一切美丽的事物。要有最柔软的心，即使年华老去，依旧拥有今日剔透纯净的眼睛。</p>
-    </div>
-     <!--header end-->
-    <!--nav-->
-     <div id="nav">
-         <ul>
-         <li><a href="../index.html">首页</a></li>
-         <li><a href="../about.html">关于我</a></li>
-         <li><a href="../shuo.html">碎言碎语</a></li>
-         <li><a href="../riji.html">个人日记</a></li>
-         <li><a href="../xc.html">相册展示</a></li>
-         <li><a href="../learn.html" id="nava">学无止境</a></li>
-         <li><a href="../guestbook.html">留言板</a></li>
-         <div class="clear"></div>
-        </ul>
-      </div>
-       <!--nav end-->
+<!--header start-->
+<div class="include" file="../header.html"></div>
+<!--header end-->
     <!--content start-->
     <div id="content">
        <!--left-->
@@ -99,69 +82,29 @@
      
          </div>
          <!--end left -->
-         <!--right-->
-                <div class="right" id="c_right">
-          <div class="s_about">
-          <h2>关于博主</h2>
-           <img src="images/my.jpg" width="230" height="230" alt="博主"/>
-           <p>博主：Xie</p>
-           <p>职业：PHPCoder</p>
-           <p>简介：</p>
-           <p>
-           <a target="_blank" href="tencent://message/?uin=624131304" title="联系博主"><span class="left b_1"></span></a><a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>
-           <div class="clear"></div>
-           </p>
-          </div>
-          <!--栏目分类-->
-           <div class="lanmubox">
-              <div class="hd">
-               <ul><li>精心推荐</li><li>最新文章</li><li class="hd_3">随机文章</li></ul>
-              </div>
-              <div class="bd">
-                <ul>
-					<li><a href="#" title="CentOS 更新git版本到2.2">CentOS 更新git版本到2.2</a></li>
-					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-				</ul>
-                 <ul>
-					<li><a href="#" title="CentOS 更新git版本到2.2">CentOS 更新git版本到2.2</a></li>
-					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-				</ul>
-                 <ul>
-					<li><a href="#" title="CentOS 更新git版本到2.2">CentOS 更新git版本到2.2</a></li>
-					<li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
-					<li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
-					<li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
-					<li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
-				</ul>
-                 
-                
-              </div>
-           </div>
-           <!--end-->
-             <div class="link">
-                 <h2>友情链接</h2>
-                 <p><a href="http://www.baidu.com" target="_blank">百度</a></p>
-                 <p><a href="http://www.qq.com" target="_blank">腾讯</a></p>
-             </div>
-         </div>
-         <!--end  right-->
+        <!--right-->
+        <div class="include" file="../right.html"></div>
+        <!--right end-->
          <div class="clear"></div>
          
     </div>
     <!--content end-->
-    <!--footer-->
-    <div id="footer">
-     <p>Design by:Xie </p>
-    </div>
-    <!--footer end-->
+      <!--footer start-->
+      <div class="include" file="../footer.html"></div>
+      <!--footer end-->
     <script type="text/javascript">jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});</script>
     <script  type="text/javascript" src="../js/nav.js"></script>
+      <script type="text/javascript">
+          $(".include").each(function() {
+              var file = $(this).attr("file");
+              if(!!file) {
+                  var thisObj = $(this);
+                  $.get(file, function(html) {
+                      thisObj.after(html).remove();
+                  });
+              }
+          });
+      </script>
 </body>
 </html>
 

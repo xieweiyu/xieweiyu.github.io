@@ -20,25 +20,10 @@
 </head>
 
 <body>
-    <!--header start-->
-    <div id="header">
-      <h1>个人博客</h1>
-      <p>以直觉和性情生存，喜欢一切美丽的事物。要有最柔软的心，即使年华老去，依旧拥有今日剔透纯净的眼睛。</p>
-      <div id="nav">
-        <ul>
-         <li><a href="index.html">首页</a></li>
-         <li><a href="about.html">关于我</a></li>
-         <li><a href="shuo.html">碎言碎语</a></li>
-         <li><a href="riji.html">个人日记</a></li>
-         <li><a href="xc.html" id="nava">相册展示</a></li>
-         <li><a href="learn.html">学无止境</a></li>
-         <li><a href="guestbook.html">留言板</a></li>
-         <div class="clear"></div>
-        </ul>
-      </div>
-    </div>
-    <!--header end-->
-    <!--content start-->
+<!--header start-->
+<div class="include" file="header.html"></div>
+<!--<div id="header">-->
+<!--content start-->
     <div id="content_xc">
          <div class="weizi">
            <div class="wz_text">当前位置：<a href="#">首页</a>><h1>相册展示</h1></div>
@@ -79,11 +64,9 @@
          </div>
     </div>
     <!--content end-->
-  <!--footer-->
-    <div id="footer">
-     <p>Design by:Xie </p>
-    </div>
-    <!--footer end-->
+<!--footer start-->
+<div class="include" file="footer.html"></div>
+<!--footer end-->
     <script type="text/javascript">jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});</script>
     <script  type="text/javascript" src="js/nav.js"></script>
      <script>
@@ -148,6 +131,17 @@
 
     $("#wf-main").show();
 
-</script>	
+</script>
+<script type="text/javascript">
+    $(".include").each(function() {
+        var file = $(this).attr("file");
+        if(!!file) {
+            var thisObj = $(this);
+            $.get(file, function(html) {
+                thisObj.after(html).remove();
+            });
+        }
+    });
+</script>
 </body>
 </html>
