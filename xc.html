@@ -11,7 +11,7 @@
 <script type="text/javascript" src="js/jquery1.42.min.js"></script>
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
-    <script>
+<script>
     $(document).ready(function(){
         var img = [1,2,3,4,5,6,7,8,9,10];
     for(var i=1;i<11;i++){
@@ -27,9 +27,11 @@
     $("#wf-main").append(msg);
     }
     });
-    </script>
-
-
+    function wh(obj) {
+                obj.width=200;
+                obj.height=obj.naturalHeight;
+                }
+</script>
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
@@ -159,12 +161,7 @@
         }
     });
 </script>
-<script type="text/javascript">
-    function wh(obj) {
-        obj.width=200;
-        obj.height=obj.naturalHeight;
-    }
-</script>
+
 <script type="text/javascript" src="js/waterfall.js" ></script>
 </body>
 </html>
