@@ -22,7 +22,7 @@
     var image = new Image();image.src = src;
     var  w = image.width;
     var  h = image.height;//"+h+"
-    var msg = "<li class='wf-cld'><img src='"+src+"'   width='"+w+"' height='"+h+"'  alt=''/></li>"
+    var msg = "<li class='wf-cld'><img onload='wh(this)' src='"+src+"' id='"+m+"'   width='"+w+"' height='"+h+"'  alt=''/></li>"
     //var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
     $("#wf-main").append(msg);
     }
@@ -73,7 +73,6 @@
                         <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/2.jpg"  width="200" height="267" alt="" /></li>-->
                         <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/3.jpg"  width="200" height="125" alt="" /></li>-->
                         <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/8.jpg"  width="200" height="178" alt="" /></li>-->
-
                     </ul>
                </div>
              </div>
@@ -159,6 +158,14 @@
             });
         }
     });
+</script>
+<script type="text/javascript">
+    function wh(obj) {
+        console.log(obj.naturalHeight);
+    }
+//    var obj = $("#1");
+////    for(i in obj) console.log(obj[i]);
+//    console.log(obj.src);
 </script>
 </body>
 </html>
