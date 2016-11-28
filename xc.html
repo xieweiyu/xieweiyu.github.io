@@ -13,21 +13,17 @@
 <!--<script type="text/javascript" src="js/common.js"></script>-->
 <script>
     $(document).ready(function(){
-//        var img = [1,2,3,4,5,6,7,8,9,10];
-    for(var i=1;i<11;i++){
-//    var google = Math.random()*img.length;
-//    var m = img[Math.ceil(google)-1];
-//    img.splice(Math.ceil(google)-1,1);
-    var src="images/photo/"+i+".jpg";//http://xieweiyu.github.io
-    var image = new Image();image.src = src;
-//    var  w = image.width;
-    var  h = image.height;//"+h+"
-    var msg = "<div class='box'><img id='"+i+"' src='"+src+"' alt='' width='200' /></div>"
-    //var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
+        var img = [1,2,3,4,5,6,7,8,9,10];
+        var l=img.length;
+    for(var i=0;i<l;i++){
+    var google = Math.random()*img.length;
+    var m = img[Math.ceil(google)-1];
+    img.splice(Math.ceil(google)-1,1);
+    var src="images/photo/"+m+".jpg";//http://xieweiyu.github.io
+    var msg = "<div class='box'><img id='"+(i+1)+"' src='"+src+"' alt='' width='200' /></div>"
     $("#water").append(msg);
     }
     });
-
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
