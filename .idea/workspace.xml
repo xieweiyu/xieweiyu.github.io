@@ -27,14 +27,14 @@
       <file leaf-file-name="xc.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xc.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="165" column="5" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
+            <state relative-caret-position="351">
+              <caret line="167" column="63" selection-start-line="167" selection-start-column="63" selection-end-line="167" selection-end-column="63" />
               <folding>
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#5372#6182#0" expanded="false" />
-                <element signature="e#5421#6064#0" expanded="false" />
+                <element signature="e#5309#6119#0" expanded="false" />
+                <element signature="e#5358#6001#0" expanded="false" />
                 <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
@@ -205,12 +205,12 @@
       <workItem from="1480149943566" duration="3115000" />
       <workItem from="1480157850577" duration="9993000" />
       <workItem from="1480243797404" duration="11251000" />
-      <workItem from="1480295911776" duration="10540000" />
+      <workItem from="1480295911776" duration="10675000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34899000" />
+    <option name="totallyTimeSpent" value="35034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -398,8 +398,8 @@
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#5372#6182#0" expanded="false" />
-            <element signature="e#5421#6064#0" expanded="false" />
+            <element signature="e#5309#6119#0" expanded="false" />
+            <element signature="e#5358#6001#0" expanded="false" />
             <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -593,14 +593,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xc.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="165" column="5" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
+        <state relative-caret-position="351">
+          <caret line="167" column="63" selection-start-line="167" selection-start-column="63" selection-end-line="167" selection-end-column="63" />
           <folding>
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#script#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#5372#6182#0" expanded="false" />
-            <element signature="e#5421#6064#0" expanded="false" />
+            <element signature="e#5309#6119#0" expanded="false" />
+            <element signature="e#5358#6001#0" expanded="false" />
             <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
