@@ -22,20 +22,31 @@
     var image = new Image();image.src = src;
 //    var  w = image.width;
     var  h = image.height;//"+h+"
-    var msg = "<li class='wf-cld' style='height: 175px'><img onload='wh(this)' id='"+i+"' src='"+src+"'  width='200' height='"+h+"'  alt=''/></li>"
+    var msg = "<div class='box'><img id='"+i+"' src='"+src+"' alt='' width='200' /></div>"
     //var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
-    $("#wf-main").append(msg);
+    $("#water").append(msg);
     }
     });
-    function wh(obj) {
-//        alert(obj.parent);
-                obj.width=200;
-                obj.height=obj.naturalHeight;
-                }
+
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
 <![endif]-->
+    <style>
+        *{padding: 0;margin: 0;}
+        #water {
+            position: relative;
+        }
+        #water .box {
+            widows: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #water .box img {
+            width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,38 +59,7 @@
          <div class="weizi">
            <div class="wz_text">当前位置：<a href="index.html">首页</a>><h1>相册展示</h1></div>
          </div>
-         <div class="xc_content">
-          <div class="con-bg">
-              <div class="w960 mt_10">
-               <div class="w650">
-                <ul class="tips" id="wf-main" style="display:none;" >
-                        <!--<li class="wf-cld"><img src="images/photo/8.jpg"   width="200" height="178" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/8.jpg"   width="200" height="147" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/8.jpg"   width="200" height="267" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/8.jpg"   width="200" height="125" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/4.jpg"   width="200" height="299" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/5.jpg"   width="200" height="125" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/6.jpg"   width="200" height="267" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/7.jpg"   width="200" height="135" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/9.jpg"   width="200" height="300" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img src="images/photo/10.jpg"  width="200" height="107" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/8.jpg"  width="200" height="178" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/1.jpg" height="147" width="200" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/2.jpg"  width="200" height="267" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/3.jpg"  width="200" height="125" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/4.jpg" width="200" height="299" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/5.jpg" width="200" height="125" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/6.jpg" width="200" height="267"alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/7.jpg" width="200" height="135" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/9.jpg"  width="200" height="300" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/10.jpg"  width="200" height="107" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/2.jpg"  width="200" height="267" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/3.jpg"  width="200" height="125" alt="" /></li>-->
-                        <!--<li class="wf-cld"><img rel="lazy" lazy_src="images/photo/8.jpg"  width="200" height="178" alt="" /></li>-->
-                    </ul>
-               </div>
-             </div>
-           </div>
+         <div class="xc_content" id="water" style="background-color: #ffffff">
          </div>
     </div>
     <!--content end-->
@@ -161,13 +141,6 @@
             });
         }
     });
-    $(document).ready(function(){
-    for(var i=1;i<11;i++){
-//        var image = new Image();image.src = $('#'+i).attr('src');
-        $('#'+i).parent("li").css("height",$('#'+i).attr('height')+"px");
-        console.log($('#'+i).attr('height'));
-//        console.log($('#'+i).width);
-    }});
 </script>
 
 <script type="text/javascript" src="js/waterfall.js" ></script>
