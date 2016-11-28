@@ -20,10 +20,10 @@
     var google = Math.random()*img.length;
     var m = img[Math.ceil(google)-1];
     img.splice(Math.ceil(google)-1,1);
-    var src="./images/photo/"+m+".jpg";//http://xieweiyu.github.io
+    var src="images/photo/"+m+".jpg";//http://xieweiyu.github.io
     var image = new Image();image.src = src;
-    var  w = image.width;
-    var  h = image.height;//"+h+"
+    var  w = image.Width;
+    var  h = image.Height;//"+h+"
     var msg = "<li class='wf-cld'><img src='"+src+"'   width='"+w+"' height='"+h+"'  alt=''/></li>"
     //var msg = "<li><a href='javascript:void(0)'>删我</a><span style='color:yellow;'>" + google + "</span></li>";
     $("#wf-main").append(msg);
