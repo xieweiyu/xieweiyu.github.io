@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05bd12d3-afe3-4eff-9279-cde5f574ed04" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/waterfall.js" afterPath="$PROJECT_DIR$/js/waterfall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xc.html" afterPath="$PROJECT_DIR$/xc.html" />
     </list>
     <ignored path="xieweiyu.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xc.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="xc.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xc.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
@@ -98,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="waterfall.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="waterfall.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/waterfall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2187">
-              <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+            <state relative-caret-position="295">
+              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -314,12 +312,12 @@
       <workItem from="1480157850577" duration="9993000" />
       <workItem from="1480243797404" duration="11251000" />
       <workItem from="1480295911776" duration="24827000" />
-      <workItem from="1480331093976" duration="1119000" />
+      <workItem from="1480331093976" duration="1853000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50305000" />
+    <option name="totallyTimeSpent" value="51039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -673,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/waterfall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2187">
-          <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xc.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -692,6 +682,14 @@
             <element signature="e#2226#2869#0" expanded="false" />
             <element signature="n#script#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/waterfall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
