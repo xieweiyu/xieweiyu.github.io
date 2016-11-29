@@ -1,12 +1,13 @@
-<div class="right" id="c_right">
+<div class="right cforh" id="c_right">
     <div class="s_about">
         <h2>关于博主</h2>
-        <img src="https://xieweiyu.github.io/images/my.jpg" width="230" height="230" alt="博主"/>
+        <img src="https://xieweiyu.github.io/images/my.jpg" width="200" height="200" alt="博主"/>
         <p>博主：Xie Wei Yu</p>
         <p>职业：PHPCoder</p>
-        <p>简介：</p>
+        <!--<p>简介：</p>-->
         <p>
-            <a target="_blank" href="tencent://message/?uin=824785442" title="联系博主"><span class="left b_1"></span></a><a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>
+            <a target="_blank" href="tencent://message/?uin=824785442" title="联系博主"><span class="left b_1"></span></a>
+            <!--<a href="#" title="加入QQ群，一起学习！"><span class="left b_2"></span></a>-->
         <div class="clear"></div>
         </p>
     </div>
@@ -24,12 +25,10 @@
                 <li><a href="https://xieweiyu.github.io/article/a_3.html" title="Linux下mysql的root密码忘了解决办法">Linux下数据库密码忘了解决办法</a></li>
                 <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
                 <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
-                <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
             </ul>
             <ul>
                 <li><a href="https://xieweiyu.github.io/article/a_2.html" title="CentOS 更新git版本到2.2">CentOS 更新git版本到2.2</a></li>
                 <li><a href="https://xieweiyu.github.io/article/a_3.html" title="Linux下mysql的root密码忘了解决办法">Linux下数据库密码忘了解决办法</a></li>
-                <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
                 <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
                 <li><a href="https://xieweiyu.github.io/article/a_1.html" title="linux下yum安装php环境">linux下yum安装php环境</a></li>
             </ul>
@@ -62,5 +61,19 @@
     .ta{
         color: #5d5d5d;
     }
+    #c_right.fixed{position: fixed;top:0px;right:174px;}
 </style>
 <script type="text/javascript">jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});</script>
+<script type="text/javascript">
+//var l = screen.width-$(".cforh").width()-174;
+//console.log(l);
+    if($(".left").height()>$(".cforh").height()){$(".cforh").addClass("cforfixed")}
+    $(window).scroll(function () {
+    var offsettop = $(window).scrollTop();
+//    console.log((screen.width-1000)/2);
+    if ( offsettop> 140) {
+        $('.cforfixed').addClass('fixed');
+    }
+    else {
+        $('.cforfixed').removeClass('fixed');}
+})</script>
