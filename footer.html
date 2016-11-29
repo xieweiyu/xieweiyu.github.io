@@ -1,3 +1,19 @@
 <div id="footer">
     <p>Design by:<span style="color:#2ca7b7;">Xie Wei Yu </span></p>
 </div>
+<script type="text/javascript">
+    if($(".left").height()>$(".cforh").height()){$(".cforh").addClass("cforfixed")}
+    $(window).scroll(function () {
+        var offsettop = $(window).scrollTop();
+//    console.log((screen.width-1000)/2);
+        if ( offsettop> 140) {
+            $('.cforfixed').addClass('fixed');
+            $('#gotop').addClass("show");
+            $('#gotop').removeClass("hid");
+        }
+        else {
+            $('.cforfixed').removeClass('fixed');
+            $('#gotop').addClass('hid');
+            $('#gotop').removeClass('show');
+        }
+    })</script>

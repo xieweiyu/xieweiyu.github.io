@@ -64,21 +64,3 @@
     #c_right.fixed{position: fixed;top:0px;right:174px;}
 </style>
 <script type="text/javascript">jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});</script>
-<script type="text/javascript">
-//var l = screen.width-$(".cforh").width()-174;
-//console.log(l);
-    if($(".left").height()>$(".cforh").height()){$(".cforh").addClass("cforfixed")}
-    $(window).scroll(function () {
-    var offsettop = $(window).scrollTop();
-//    console.log((screen.width-1000)/2);
-    if ( offsettop> 140) {
-        $('.cforfixed').addClass('fixed');
-        $('#gotop').addClass("show");
-        $('#gotop').removeClass("hid");
-    }
-    else {
-        $('.cforfixed').removeClass('fixed');
-        $('#gotop').addClass('hid');
-        $('#gotop').removeClass('show');
-    }
-})</script>
