@@ -1,5 +1,5 @@
 <div id="header">
-    <h1>个人博客</h1>
+    <h1 id="top">个人博客</h1>
     <p>以直觉和性情生存，喜欢一切美丽的事物。要有最柔软的心，即使年华老去，依旧拥有今日剔透纯净的眼睛。</p>
 </div>
 <div id="nav">
@@ -14,6 +14,11 @@
         <div class="clear"></div>
     </ul>
 </div>
+<a href="#top"><div id="gotop" class="hid" ></div></a>
+<style>
+    #gotop.hid{position: fixed;bottom: 50px;right: 50px;width: 50px;height: 40px;display: none;}
+    #gotop.show{position: fixed;bottom: 50px;right: 50px;width: 50px;height:40px;display: block;background-image: url("images/top.png")}
+</style>
 <script  type="text/javascript" >
     $(function () {
         var selected = $('#select').val();

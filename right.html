@@ -73,7 +73,12 @@
 //    console.log((screen.width-1000)/2);
     if ( offsettop> 140) {
         $('.cforfixed').addClass('fixed');
+        $('#gotop').addClass("show");
+        $('#gotop').removeClass("hid");
     }
     else {
-        $('.cforfixed').removeClass('fixed');}
+        $('.cforfixed').removeClass('fixed');
+        $('#gotop').addClass('hid');
+        $('#gotop').removeClass('show');
+    }
 })</script>
