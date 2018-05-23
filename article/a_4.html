@@ -39,48 +39,187 @@
                     <div class="clear"></div>
                   </div>
                     <div class="news_text">
-                    <h4>1、安装apache:</h4><br>
-                            yum install httpd httpd-devel<br>
-                            启动apache:<br>
-                            /etc/init.d/httpd start<br>
-                            此时输入服务器的IP地址，应该看到apache的服务页面，端口不用输，apache默认就是使用80端口<br>
-                        <br>
-                        <h4>2、 安装mysql:</h4><br>
-                            yum install mysql mysql-server<br>
-                            启动mysql:<br>
-                            /etc/init.d/mysqld start<br><br>
+                    <?php
 
-                        <h4>3、 安装php</h4><br>
-                            yum install php php-devel<br>
-                            重启apache使php生效<br>
-                            /etc/init.d/httpd restart<br>
-                            此时可以在目录：/var/www/html/下建立一个PHP文件<br>
-                            代码：<br>
-                            &lt;?php phpinfo(); ?><br>
-                            然后访问这个文件，就能看到PHP的一些信息，php.ini配置文件的路径可以在这个页面上看到<br><br>
-                        <h4>4、 安装php的扩展</h4><br>
-                            yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc<br>
-                            安装完扩展之后需要再次重启apache<br>
-                            /etc/init.d/httpd restart<br>
 
-                            测试mysql是否链接成功的php代码<br>
-                            &lt;?php <br>
-$con = mysql_connect("10.0.@.@@","@@","@@");<br>
-if (!$con)<br>
-  {<br>
-  die('Could not connect: ' . mysql_error());<br>
-  }<br>
-mysql_select_db("mydb", $con);<br>
-$result = mysql_query("SELECT * FROM sys_user");<br>
-while($row = mysql_fetch_array($result))<br>
-  {<br>
-  echo $row['UserName'] . " " . $row['PassWord'] . " " . $row['id'];<br>
-  echo "<br />";<br>
-                            }<br>
-                            mysql_close($con);<br>
-                            ?><br>
-                            可以把上面的代码传入目录/var/www/html/<br>
-                            就可以看到执行情况
+/**
+ * byte数组与字符串转化类
+ * @author zikie
+ * Created on 2011-7-15 
+ */
+
+
+class Bytes {
+    
+    /**
+     * 转换一个String字符串为byte数组(10进制)
+     * @param $str 需要转换的字符串
+     * @param $bytes 目标byte数组
+     * @author Zikie
+     */
+     
+    public static function getBytes_10($str) {
+
+
+        $len = strlen($str);
+        $bytes = array();
+           for($i=0;$i<$len;$i++) {
+               if(ord($str[$i]) >= 128){
+                   $byte = ord($str[$i]) - 256;
+               }else{
+                   $byte = ord($str[$i]);
+               }
+            $bytes[] =  $byte ;
+        }
+        return $bytes;
+    }
+
+
+    /**
+     * 转换一个String字符串为byte数组(16进制)
+     * @param $str 需要转换的字符串
+     * @param $bytes 目标byte数组
+     * @author Zikie
+     */
+     
+    public static function getBytes_16($str) {
+
+
+        $len = strlen($str);
+        $bytes = array();
+           for($i=0;$i<$len;$i++) {
+               if(ord($str[$i]) >= 128){
+                   $byte = ord($str[$i]) - 256;
+               }else{
+                   $byte = ord($str[$i]);
+               }
+            $bytes[] =  "0x".dechex($byte) ;
+        }
+        return $bytes;
+    }
+
+
+    /**
+     * 转换一个String字符串为byte数组(2进制)
+     * @param $str 需要转换的字符串
+     * @param $bytes 目标byte数组
+     * @author Zikie
+     */
+     
+    public static function StrToBin($str){ 
+    //1.列出每个字符 
+        $arr = preg_split('/(?<!^)(?!$)/u', $str); 
+        //2.unpack字符 
+        foreach($arr as &$v){ 
+            $temp = unpack('H*', $v); 
+            $v = base_convert($temp[1], 16, 2); 
+            unset($temp); 
+        } 
+ 
+        return $arr; 
+    }
+
+
+    /**
+     * 转换一个byte数组为String(2进制)
+     * @param $str 需要转换的字符串
+     * @param $bytes 目标byte数组
+     * @author Zikie
+     */
+ 
+    function BinToStr($str){ 
+        $arr = explode(' ', $str); 
+        foreach($arr as &$v){ 
+            $v = pack("H".strlen(base_convert($v, 2, 16)), base_convert($v, 2, 16)); 
+        } 
+     
+        return $v; 
+    } 
+    
+    /**
+     * 将字节数组转化为String类型的数据
+     * @param $bytes 字节数组
+     * @param $str 目标字符串
+     * @return 一个String类型的数据
+     */
+     
+    public static function toStr($bytes) {
+        $str = '';
+        foreach($bytes as $ch) {
+            $str .= chr($ch);
+        }
+
+
+           return $str;
+    }
+    
+    /**
+     * 转换一个int为byte数组
+     * @param $byt 目标byte数组
+     * @param $val 需要转换的字符串
+     * @author Zikie
+     */
+    
+    public static function integerToBytes($val) {
+        $byt = array();
+        $byt[0] = ($val & 0xff);
+        $byt[1] = ($val >> 8 & 0xff);
+        $byt[2] = ($val >> 16 & 0xff);
+        $byt[3] = ($val >> 24 & 0xff); 
+        return $byt;
+    }
+    
+    /**
+     * 从字节数组中指定的位置读取一个Integer类型的数据
+     * @param $bytes 字节数组
+     * @param $position 指定的开始位置
+     * @return 一个Integer类型的数据
+     */
+     
+    public static function bytesToInteger($bytes, $position) {
+        $val = 0;
+        $val = $bytes[$position + 3] & 0xff; 
+        $val <<= 8;
+        $val |= $bytes[$position + 2] & 0xff;
+        $val <<= 8;
+        $val |= $bytes[$position + 1] & 0xff;
+        $val <<= 8;
+        $val |= $bytes[$position] & 0xff;
+        return $val;
+    }
+
+
+    /**
+     * 转换一个shor字符串为byte数组
+     * @param $byt 目标byte数组
+     * @param $val 需要转换的字符串
+     * @author Zikie
+     */
+    
+    public static function shortToBytes($val) {
+        $byt = array();
+        $byt[0] = ($val & 0xff);
+        $byt[1] = ($val >> 8 & 0xff);
+        return $byt;
+    }
+    
+    /**
+     * 从字节数组中指定的位置读取一个Short类型的数据。
+     * @param $bytes 字节数组
+     * @param $position 指定的开始位置
+     * @return 一个Short类型的数据
+     */
+     
+    public static function bytesToShort($bytes, $position) {
+        $val = 0;
+        $val = $bytes[$position + 1] & 0xFF; 
+        $val = $val << 8;
+        $val |= $bytes[$position] & 0xFF;
+        return $val;
+    }
+    
+}
+?>
                     </div>
            </div>
      
