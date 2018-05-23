@@ -31,7 +31,7 @@
            </div>
            <div class="news_content">
                   <div class="news_top">
-                    <h1>Linux下安装php环境4</h1>
+                    <h1>php里面的String和byte[]转换的工具类</h1>
                     <p>
                       <span class="left sj">时间:2018-05-23</span><span class="left fl">分类:学无止境</span>
                       <span class="left author">Xie</span>
@@ -43,8 +43,6 @@
 
 /**<br>
  * byte数组与字符串转化类<br>
- * @author zikie<br>
- * Created on 2011-7-15 <br>
  */<br>
 
 class Bytes {<br>
@@ -53,20 +51,19 @@ class Bytes {<br>
      * 转换一个String字符串为byte数组(10进制)<br>
      * @param $str 需要转换的字符串<br>
      * @param $bytes 目标byte数组<br>
-     * @author Zikie<br>
      */<br>
     public static function getBytes_10($str) {<br>
-        $len = strlen($str);<br>
-        $bytes = array();<br>
-           for($i=0;$i<$len;$i++) {<br>
-               if(ord($str[$i]) >= 128){<br>
-                   $byte = ord($str[$i]) - 256;<br>
-               }else{<br>
-                   $byte = ord($str[$i]);<br>
-               }<br>
-            $bytes[] =  $byte ;<br>
-        }<br>
-        return $bytes;<br>
+        <pre>    </pre>$len = strlen($str);<br>
+        <pre>    </pre>$bytes = array();<br>
+         <pre>    </pre>  for($i=0;$i<$len;$i++) {<br>
+         <pre>    </pre><pre>    </pre>      if(ord($str[$i]) >= 128){<br>
+          <pre>    </pre><pre>    </pre><pre>    </pre>         $byte = ord($str[$i]) - 256;<br>
+          <pre>    </pre><pre>    </pre>     }else{<br>
+            <pre>    </pre><pre>    </pre><pre>    </pre>       $byte = ord($str[$i]);<br>
+            <pre>    </pre><pre>    </pre>   }<br>
+            <pre>    </pre><pre>    </pre>$bytes[] =  $byte ;<br>
+        <pre>    </pre>}<br>
+        <pre>    </pre>return $bytes;<br>
     }<br>
 <br>
 
@@ -74,20 +71,19 @@ class Bytes {<br>
      * 转换一个String字符串为byte数组(16进制)<br>
      * @param $str 需要转换的字符串<br>
      * @param $bytes 目标byte数组<br>
-     * @author Zikie<br>
      */<br>
      public static function getBytes_16($str) {<br>
-        $len = strlen($str);<br>
-        $bytes = array();<br>
-           for($i=0;$i<$len;$i++) {<br>
-               if(ord($str[$i]) >= 128){<br>
-                   $byte = ord($str[$i]) - 256;<br>
-               }else{<br>
-                   $byte = ord($str[$i]);<br>
-               }<br>
-            $bytes[] =  "0x".dechex($byte) ;<br>
-        }<br>
-        return $bytes;<br>
+        <pre>    </pre>$len = strlen($str);<br>
+        <pre>    </pre>$bytes = array();<br>
+        <pre>    </pre>for($i=0;$i<$len;$i++) {<br>
+        <pre>    </pre><pre>    </pre>if(ord($str[$i]) >= 128){<br>
+        <pre>    </pre><pre>    </pre><pre>    </pre>$byte = ord($str[$i]) - 256;<br>
+        <pre>    </pre><pre>    </pre>}else{<br>
+        <pre>    </pre><pre>    </pre><pre>    </pre>$byte = ord($str[$i]);<br>
+        <pre>    </pre><pre>    </pre>}<br>
+        <pre>    </pre><pre>    </pre>$bytes[] =  "0x".dechex($byte) ;<br>
+        <pre>    </pre><pre>    </pre>}<br>
+        <pre>    </pre>return $bytes;<br>
     }<br>
 <br>
 
@@ -95,18 +91,17 @@ class Bytes {<br>
      * 转换一个String字符串为byte数组(2进制)<br>
      * @param $str 需要转换的字符串<br>
      * @param $bytes 目标byte数组<br>
-     * @author Zikie<br>
      */<br>
     public static function StrToBin($str){ <br>
-    //1.列出每个字符 <br>
-        $arr = preg_split('/(?<!^)(?!$)/u', $str); <br>
-        //2.unpack字符 <br>
-        foreach($arr as &$v){ <br>
-            $temp = unpack('H*', $v); <br>
-            $v = base_convert($temp[1], 16, 2); <br>
-            unset($temp); <br>
-        } <br>
-        return $arr; <br>
+    <pre>    </pre>//1.列出每个字符 <br>
+    <pre>    </pre>    $arr = preg_split('/(?<!^)(?!$)/u', $str); <br>
+    <pre>    </pre>    //2.unpack字符 <br>
+     <pre>    </pre>   foreach($arr as &$v){ <br>
+       <pre>    </pre><pre>    </pre>     $temp = unpack('H*', $v); <br>
+      <pre>    </pre><pre>    </pre>      $v = base_convert($temp[1], 16, 2); <br>
+      <pre>    </pre><pre>    </pre>      unset($temp); <br>
+      <pre>    </pre>  } <br>
+       <pre>    </pre> return $arr; <br>
     }<br>
 <br>
 
@@ -114,12 +109,11 @@ class Bytes {<br>
      * 转换一个byte数组为String(2进制)<br>
      * @param $str 需要转换的字符串<br>
      * @param $bytes 目标byte数组<br>
-     * @author Zikie<br>
      */<br>
     function BinToStr($str){ <br>
-        $arr = explode(' ', $str); <br>
-        foreach($arr as &$v){ <br>
-            $v = pack("H".strlen(base_convert($v, 2, 16)), base_convert($v, 2, 16)); <br>
+        <pre>    </pre>$arr = explode(' ', $str); <br>
+        <pre>    </pre>foreach($arr as &$v){ <br>
+        <pre>    </pre>$v = pack("H".strlen(base_convert($v, 2, 16)), base_convert($v, 2, 16)); <br>
         } <br>
      <br>
         return $v; <br>
@@ -132,9 +126,9 @@ class Bytes {<br>
      * @return 一个String类型的数据<br>
      */<br>
     public static function toStr($bytes) {<br>
-        $str = '';<br>
-        foreach($bytes as $ch) {<br>
-            $str .= chr($ch);<br>
+        <pre>    </pre>$str = '';<br>
+        <pre>    </pre>foreach($bytes as $ch) {<br>
+        <pre>    </pre>    $str .= chr($ch);<br>
         }<br>
       return $str;<br>
     }<br>
@@ -143,16 +137,15 @@ class Bytes {<br>
      * 转换一个int为byte数组<br>
      * @param $byt 目标byte数组<br>
      * @param $val 需要转换的字符串<br>
-     * @author Zikie<br>
      */<br>
     
     public static function integerToBytes($val) {<br>
-        $byt = array();<br>
-        $byt[0] = ($val & 0xff);<br>
-        $byt[1] = ($val >> 8 & 0xff);<br>
-        $byt[2] = ($val >> 16 & 0xff);<br>
-        $byt[3] = ($val >> 24 & 0xff); <br>
-        return $byt;<br>
+        <pre>    </pre>$byt = array();<br>
+        <pre>    </pre>$byt[0] = ($val & 0xff);<br>
+        <pre>    </pre>$byt[1] = ($val >> 8 & 0xff);<br>
+        <pre>    </pre>$byt[2] = ($val >> 16 & 0xff);<br>
+        <pre>    </pre>$byt[3] = ($val >> 24 & 0xff); <br>
+        <pre>    </pre>return $byt;<br>
     }<br>
     <br>
     /**<br>
@@ -163,15 +156,15 @@ class Bytes {<br>
      */<br>
      
     public static function bytesToInteger($bytes, $position) {<br>
-        $val = 0;<br>
-        $val = $bytes[$position + 3] & 0xff; <br>
-        $val <<= 8;<br>
-        $val |= $bytes[$position + 2] & 0xff;<br>
-        $val <<= 8;<br>
-        $val |= $bytes[$position + 1] & 0xff;<br>
-        $val <<= 8;<br>
-        $val |= $bytes[$position] & 0xff;<br>
-        return $val;<br>
+      <pre>    </pre>  $val = 0;<br>
+      <pre>    </pre>  $val = $bytes[$position + 3] & 0xff; <br>
+      <pre>    </pre>  $val <<= 8;<br>
+      <pre>    </pre>  $val |= $bytes[$position + 2] & 0xff;<br>
+      <pre>    </pre>  $val <<= 8;<br>
+      <pre>    </pre>  $val |= $bytes[$position + 1] & 0xff;<br>
+      <pre>    </pre>  $val <<= 8;<br>
+      <pre>    </pre>  $val |= $bytes[$position] & 0xff;<br>
+      <pre>    </pre>  return $val;<br>
     }<br>
 <br>
 
@@ -179,14 +172,13 @@ class Bytes {<br>
      * 转换一个shor字符串为byte数组<br>
      * @param $byt 目标byte数组<br>
      * @param $val 需要转换的字符串<br>
-     * @author Zikie<br>
      */<br>
     
     public static function shortToBytes($val) {<br>
-        $byt = array();<br>
-        $byt[0] = ($val & 0xff);<br>
-        $byt[1] = ($val >> 8 & 0xff);<br>
-        return $byt;<br>
+       <pre>    </pre> $byt = array();<br>
+       <pre>    </pre> $byt[0] = ($val & 0xff);<br>
+       <pre>    </pre> $byt[1] = ($val >> 8 & 0xff);<br>
+       <pre>    </pre> return $byt;<br>
     }<br>
     <br>
     /**<br>
@@ -197,11 +189,11 @@ class Bytes {<br>
      */<br>
      <br>
     public static function bytesToShort($bytes, $position) {<br>
-        $val = 0;<br>
-        $val = $bytes[$position + 1] & 0xFF; <br>
-        $val = $val << 8;<br>
-        $val |= $bytes[$position] & 0xFF;<br>
-        return $val;<br>
+    <pre>    </pre>    $val = 0;<br>
+    <pre>    </pre>    $val = $bytes[$position + 1] & 0xFF; <br>
+    <pre>    </pre>    $val = $val << 8;<br>
+    <pre>    </pre>    $val |= $bytes[$position] & 0xFF;<br>
+     <pre>    </pre>   return $val;<br>
     }<br>
 }<br>
                     </div>
