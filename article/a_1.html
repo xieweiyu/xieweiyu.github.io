@@ -78,16 +78,16 @@
                             yum -y install php7w-fpm<br>
                             给apache 指定php-fpm<br>
                             #如果php-fpm使用的是TCP socket，那么在httpd.conf末尾加上：<br>
-                            <FilesMatch \.php$><br>
+                            &lt;FilesMatch \.php$&gt;<br>
                                      SetHandler "proxy:fcgi://127.0.0.1:9000"<br>
-                            </FilesMatch><br>
+                            &lt;/FilesMatch><br>
                             #如果用的是unix socket，那么httpd.conf末尾加上：<br>
-                            <Proxy "unix:/dev/shm/php-fpm.sock|fcgi://php-fpm"><br>
+                            &lt;Proxy "unix:/dev/shm/php-fpm.sock|fcgi://php-fpm"&gt;<br>
                                 ProxySet disablereuse=off<br>
-                            </Proxy><br>
-                            <FilesMatch \.php$><br>
+                            &lt;/Proxy&gt;<br>
+                            &lt;FilesMatch \.php$&gt;<br>
                                 SetHandler proxy:fcgi://php-fpm<br>
-                            </FilesMatch><br>
+                            &lt;/FilesMatch&gt;<br>
                             重启apache使配置生效<br>
                             service httpd restart<br>
                             此时可以在目录：/var/www/html/下建立一个PHP文件<br>
