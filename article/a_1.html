@@ -46,14 +46,50 @@
                             此时输入服务器的IP地址，应该看到apache的服务页面，端口不用输，apache默认就是使用80端口<br>
                         <br>
                         <h4>2、 安装mysql:</h4><br>
-                            yum install mysql mysql-server<br>
+                        下载mysql rpm源<br>
+                            wget --tries=0 --retry-connrefused http://repo.mysql.com//mysql57-community-release-el7-9.noarch.rpm<br>
+                            安装rpm源<br>
+                            yum -y install mysql57-community-release-el7-9.noarch.rpm<br>
+                            安装mysql<br>
+                            yum -y install mysql-server<br>
+                            安装依赖包<br>
+                            yum -y install mysql-community-common-5.7.17-1.el7.x86_64.rpm<br>
+                            yum -y install mysql-community-libs-5.7.17-1.el7.x86_64.rpm<br>
+                            yum -y install mysql-community-client-5.7.17-1.el7.x86_64.rpm<br>
+                            yum -y install mysql-community-server-5.7.17-1.el7.x86_64.rpm<br>
+                            加入开机启动<br>
+                            systemctl enable mysqld <br>
                             启动mysql:<br>
-                            /etc/init.d/mysqld start<br><br>
+                            service mysqld start<br>
+                            检测端口<br>
+                            netstat -natp | grep mysql<br><br>
 
                         <h4>3、 安装php</h4><br>
-                            yum install php php-devel<br>
-                            重启apache使php生效<br>
-                            /etc/init.d/httpd restart<br>
+                            #rpm 安装 Php7 相应的 yum源<br>
+                            #CentOS/RHEL 7.x:<br>
+                            rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm<br>
+                            rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm<br>
+
+                            #CentOS/RHEL 6.x:<br>
+                            rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm<br>
+                            安装php7<br>
+                            yum -y install php71w<br>
+                            安装php7-fpm<br>
+                            yum -y install php7w-fpm<br>
+                            给apache 指定php-fpm<br>
+                            #如果php-fpm使用的是TCP socket，那么在httpd.conf末尾加上：<br>
+                            <FilesMatch \.php$><br>
+                                     SetHandler "proxy:fcgi://127.0.0.1:9000"<br>
+                            </FilesMatch><br>
+                            #如果用的是unix socket，那么httpd.conf末尾加上：<br>
+                            <Proxy "unix:/dev/shm/php-fpm.sock|fcgi://php-fpm"><br>
+                                ProxySet disablereuse=off<br>
+                            </Proxy><br>
+                            <FilesMatch \.php$><br>
+                                SetHandler proxy:fcgi://php-fpm<br>
+                            </FilesMatch><br>
+                            重启apache使配置生效<br>
+                            service httpd restart<br>
                             此时可以在目录：/var/www/html/下建立一个PHP文件<br>
                             代码：<br>
                             &lt;?php phpinfo(); ?><br>
