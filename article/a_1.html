@@ -96,22 +96,19 @@
                             然后访问这个文件，就能看到PHP的一些信息，php.ini配置文件的路径可以在这个页面上看到<br><br>
                         <h4>4、 安装php的扩展</h4><br>
                             yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc<br>
-                            安装完扩展之后需要再次重启apache<br>
-                            /etc/init.d/httpd restart<br>
-
                             测试mysql是否链接成功的php代码<br>
                             &lt;?php <br>
-$con = mysql_connect("10.0.@.@@","@@","@@");<br>
-if (!$con)<br>
-  {<br>
-  die('Could not connect: ' . mysql_error());<br>
-  }<br>
-mysql_select_db("mydb", $con);<br>
-$result = mysql_query("SELECT * FROM sys_user");<br>
-while($row = mysql_fetch_array($result))<br>
-  {<br>
-  echo $row['UserName'] . " " . $row['PassWord'] . " " . $row['id'];<br>
-  echo "<br />";<br>
+                            $con = mysql_connect("10.0.@.@@","@@","@@");<br>
+                            if (!$con)<br>
+                              {<br>
+                              die('Could not connect: ' . mysql_error());<br>
+                              }<br>
+                            mysql_select_db("mydb", $con);<br>
+                            $result = mysql_query("SELECT * FROM sys_user");<br>
+                            while($row = mysql_fetch_array($result))<br>
+                              {<br>
+                              echo $row['UserName'] . " " . $row['PassWord'] . " " . $row['id'];<br>
+                              echo "<br />";<br>
                             }<br>
                             mysql_close($con);<br>
                             ?><br>
