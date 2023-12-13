@@ -8,7 +8,8 @@
   <body>
 <script>
   let code = ""
-  let randBaseArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  let alphaArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  let numberArr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
   function ArrayRand(arr, len = 6) {
     let str = ''
     while (len > 0) {
@@ -18,7 +19,12 @@
     }
     return str
   }
-  console.log(ArrayRand(randBaseArr))
+   let i = 5
+   while (i>0){
+      i--
+      $('body').prepend('<p>'+ArrayRand(numberArr,3)+ArrayRand(alphaArr,3)+'.com</p>');
+   }
+  console.log()
 </script>
 </body>
 </html>
