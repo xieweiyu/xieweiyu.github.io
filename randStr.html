@@ -1,1 +1,24 @@
-<
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   
+<script src="./js/jquery1.42.min.js"></script>
+</head>
+  <body>
+<script>
+  let code = ""
+  let randBaseArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  function ArrayRand(arr, len = 6) {
+    let str = ''
+    while (len > 0) {
+      len--;
+      let index = Math.floor(Math.random() * arr.length)
+      str += arr[index]
+    }
+    return str
+  }
+  console.log(ArrayRand(randBaseArr))
+</script>
+</body>
+</html>
