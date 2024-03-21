@@ -22,7 +22,8 @@
    let i = 5
    while (i>0){
       i--
-      $('body').prepend('<p>'+ArrayRand(numberArr,3)+ArrayRand(alphaArr,3)+'.com</p>');
+      let url = 'http://'+ArrayRand(numberArr,3)+ArrayRand(alphaArr,3)+'.com'
+      $('body').prepend(`<a href="${url}" target="_blank">${url}</a>`);
    }
   console.log()
 </script>
