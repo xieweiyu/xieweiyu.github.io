@@ -49,6 +49,15 @@
 <!--footer end-->
 <script  type="text/javascript" src="js/nav.js"></script>
 <script type="text/javascript">
+    $(".include").each(function() {
+        var file = $(this).attr("file");
+        if(!!file) {
+            var thisObj = $(this);
+            $.get(file, function(html) {
+                thisObj.after(html).remove();
+            });
+        }
+    });
     $("#downloadMainfest").click(function() {
         let apiKey = $('#api_key').val()
         let depotid = $('#depotid').val()
@@ -60,4 +69,5 @@
 </body>
 
 </html>
+
 
