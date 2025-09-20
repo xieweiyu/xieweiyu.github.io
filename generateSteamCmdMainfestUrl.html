@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我-Xie</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!--header start-->
+<div class="include" file="header.html"></div>
+<input type="hidden" id="select" value="about">
+<!--<div id="header">-->
+<!--content start-->
+<div id="content">
+    <!--left-->
+    <div class="left" id="about_me">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<a href="index.html">首页</a>><h1>关于我</h1></div>
+        </div>
+        <div class="about_content">
+            api_key:<input id="api_key" placeholder="api_key">
+            depotid:<input id="depotid" placeholder="depotid">
+            manifestid:<input id="manifestid" placeholder="manifestid">
+
+            <button id="downloadMainfest">下载Mainfest文件</button>
+        </div>
+    </div>
+    <!--end left -->
+    <!--right-->
+    <div class="include" file="right.html"></div>
+    <!--right end-->
+    <div class="clear"></div>
+
+</div>
+<!--content end-->
+<!--footer start-->
+<div class="include" file="footer.html"></div>
+<!--footer end-->
+<script  type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript">
+    $("#downloadMainfest").click(function() {
+        let apiKey = $('#api_key').val()
+        let depotid = $('#depotid').val()
+        let manifestid = $('#manifestid').val()
+        let mainfestUrl = `https://api.manifesthub1.filegear-sg.me/manifest?apikey=${apiKey}&depotid=${depotid}&manifestid=${manifestid}`
+        window.open(mainfestUrl)
+    });
+</script>
+</body>
+</html>
